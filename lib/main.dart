@@ -6,7 +6,7 @@ import './timer.dart';
 
 void main() => runApp(MyApp());
 
-final double defaultPadding = 5.0;
+final double defaultPadding = 2.0;
 final CountDownTimer timer = CountDownTimer();
 
 class MyApp extends StatelessWidget {
@@ -47,7 +47,7 @@ class MyHomePage extends StatelessWidget {
                     child: ProductivityButton(
                       color: Color(0xff009688),
                       text: "Work",
-                      onPressed: emptyMethod,
+                      onPressed: () => timer.startWork(),
                       size: null,
                     ),
                   ),
@@ -58,7 +58,7 @@ class MyHomePage extends StatelessWidget {
                     child: ProductivityButton(
                       color: Color(0xff607D8B),
                       text: "Short Break",
-                      onPressed: emptyMethod,
+                      onPressed: () => timer.startBreak(true),
                       size: null,
                     ),
                   ),
@@ -69,7 +69,7 @@ class MyHomePage extends StatelessWidget {
                     child: ProductivityButton(
                       color: Color(0xff455A64),
                       text: "Long Break",
-                      onPressed: emptyMethod,
+                      onPressed: () => timer.startBreak(false),
                       size: null,
                     ),
                   ),
@@ -128,7 +128,7 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.all(5),
+                padding: EdgeInsets.only(bottom: 5),
               ),
             ],
           );
