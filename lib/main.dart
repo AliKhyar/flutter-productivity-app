@@ -6,7 +6,7 @@ import './timer.dart';
 
 void main() => runApp(MyApp());
 
-final double defaultPadding = 2.0;
+final double defaultPadding = 5.0;
 final CountDownTimer timer = CountDownTimer();
 
 class MyApp extends StatelessWidget {
@@ -28,7 +28,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     timer.startWork();
-    print(timer.returnTime(Duration(seconds: 25)));
+    //print(timer.returnTime(Duration(seconds: 25)));
     return Scaffold(
       appBar: AppBar(
         title: Text('My work timer'),
@@ -107,7 +107,7 @@ class MyHomePage extends StatelessWidget {
                     child: ProductivityButton(
                       color: Color(0xff212121),
                       text: 'Stop',
-                      onPressed: emptyMethod,
+                      onPressed: () => timer.stopTimer(),
                       size: null,
                     ),
                   ),
@@ -118,7 +118,7 @@ class MyHomePage extends StatelessWidget {
                     child: ProductivityButton(
                       color: Color(0xff009688),
                       text: 'Restart',
-                      onPressed: emptyMethod,
+                      onPressed: () => timer.startTimer(),
                       size: null,
                     ),
                   ),
@@ -126,6 +126,9 @@ class MyHomePage extends StatelessWidget {
                     padding: EdgeInsets.all(defaultPadding),
                   ),
                 ],
+              ),
+              Padding(
+                padding: EdgeInsets.all(5),
               ),
             ],
           );

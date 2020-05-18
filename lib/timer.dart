@@ -43,4 +43,13 @@ class CountDownTimer {
     _time = Duration(minutes: this.work, seconds: 0);
     _fullTime = _time;
   }
+
+  void stopTimer() {
+    _isActive = false;
+  }
+  void startTimer(){
+    if(_time.inSeconds>0){
+      _isActive = true;
+    }
+  }
 }
